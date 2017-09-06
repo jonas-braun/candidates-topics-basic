@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Die Themen der Kandidaten</title>
+  <link rel="stylesheet" href="correctiv.css" type="text/css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="candidates-topics.css" type="text/css" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+
+  <main>
+    <article class="article">
+      <section class="article-body page__container">
+        <div class="article-body__main">
+          <h1>Was sagen die Kandidaten?</h1>
+
+<p>Wer liest schon alle Texte, die die Kandidaten zur Bundestagswahl über sich selbst schreiben?! Aber eigentlich steht da genau drin woran wir sie bewerten sollten. Welche Themen versuchen die Kandidaten zu besetzen? Und vor allem: Wie kann man sich einen Überblick verschaffen?</p>
+
+<p>Viele Deutsche - gerade jüngere - geben bis kurz vor der Wahl an, sich nicht für eine Partei entschieden zu haben [quelle?]. Wenn die Themen, die sie beschäftigen, zu komplex sind, um in den Parteiprogrammen aufzutauchen, hilft es dann sich die 4500 Kandidatinnen und Kandidaten genauer anzuschauen? (schreiben sie nur parteiprogramme ab?)</p>
+
+        </div>
+      </section>
+
+
+          <figure class="figure -full-width">
+            <h2>Die Themenlandschaft</h2>
+            <div id="viz-topics"></div> <!-- Candidates Word Cloud -->
+          </figure>
+
+          <div class="figure__credits">
+            <strong>Daten:</strong>
+          </div>
+
+          <div class="topicsButtons">
+            <button id="buttonArbeit" data-topic="arbeit" onclick="updateTopics(this);">Arbeit</button>
+            <button id="buttonNatur" data-topic="natur" onclick="updateTopics(this);">Natur</button>
+            <button id="buttonDigital" data-topic="digital" onclick="updateTopics(this);">Digital</button>
+            <button id="buttonFamilie" data-topic="familie" onclick="updateTopics(this);">Familie</button>
+          </div>
+
+      <section class="article-body page__container">
+        <div class="article-body__main">
+
+<p>Wir haben die Texte analysiert, die die Kandidaten über sich selbst schreiben und veröffentlichen. Aus den Texten haben wir Themenfelder extrahiert um herauszufinden, wer sich mit welchen Problemen auseinandersetzt. Wie die Kandidaten zu den Themen Stellung beziehen und was ihre Lösungsvorschläge sind, das kommt in unseren Daten nicht vor. Wir helfen dir, aufgrund der Themen Kandidatinnen und Kandidaten zu finden, um dich mit ihnen auseinanderzusetzen.</p>
+
+<p>600 Kandidatinnen und Kandidaten haben bei abgeordnetenwatch.de (und google) Statements zu ihren politischen Zielen abgegeben. Auf unserer Grafik sind sie nah beieinander eingezeichnet, wenn sie ähnliche Themen in ihren Texten ansprechen. Die Farben stehen für ihre Parteizugehörigkeit (die kleinen Parteien sind grau).</p>
+
+
+        </div>
+      </section>
+
+
+          <figure class="figure -full-width">
+            <h2>Die Themen</h2>
+
+          <div class="oneTopicButtons">
+            <button id="button1" data-party="cdu" onclick="updateOneTopic(this);">CDU / CSU</button>
+            <button id="button2" data-party="spd" onclick="updateOneTopic(this);">SPD</button>
+            <button id="button3" data-party="linke" onclick="updateOneTopic(this);">DIE LINKE</button>
+            <button id="button4" data-party="gruene" onclick="updateOneTopic(this);">DIE GRÜNEN</button>
+            <button id="button5" data-party="fdp" onclick="updateOneTopic(this);">FDP</button>
+            <button id="button6" data-party="afd" onclick="updateOneTopic(this);">AfD</button>
+   
+          </div>
+
+            <div id="viz-one-topic"></div> <!-- Candidates Word Cloud -->
+          </figure>
+
+      <section class="article-body page__container">
+        <div class="article-body__main">
+<p>
+Die vier stärksten Themenfelder haben wir exemplarisch herausgefiltert. Das zeigt, dass die Themenfelder sich an Parteigrenzen orientieren. Aber es finden sich auch Ausreißer, die offenbar in der falschen Partei sind.
+</p>
+
+<p>
+Die Linke ist viel Stärker als SPD in sozialen Themen. Einige CDU-Politiker setzen stark auf Umweltschutz (aus anderen Motiven/mit anderen Zielen?)
+</p>
+        </div>
+      </section>
+
+
+    </article>
+  </main>
+
+  <script src="//d3js.org/d3.v4.min.js"></script>
+  <script src="//d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+  <script src="viz-topics.js"></script>
+  <script src="viz-one-topic.js"></script>
+
+</body>
+</html>
