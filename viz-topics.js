@@ -93,8 +93,10 @@ function initTopics() {
 function ready(error, data) {
     if (error) throw error;
 
-    xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
-    yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
+    var margin = 20
+
+    xScale.domain([d3.min(data, xValue)-margin, d3.max(data, xValue)+margin]);
+    yScale.domain([d3.min(data, yValue)-margin, d3.max(data, yValue)+margin]);
 
     // top candidates
     var topCandidates = [ 'angela-merkel', 'martin-schulz-1', 'christian-lindner', 'cem-ozdemir', 'alexander-gauland', 'joachim-herrmann' ];
