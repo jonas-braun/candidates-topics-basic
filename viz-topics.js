@@ -58,6 +58,10 @@ var tooltip = d3.select("body").append("div")
      .style("opacity", 0);
 
 
+// top candidates
+var topCandidates = [ 'angela-merkel', 'martin-schulz-1', 'christian-lindner', 'cem-ozdemir', 'alexander-gauland', 'joachim-herrmann' ];
+
+
 function initTopics() {
 
     var container = document.getElementById("viz-topics");
@@ -100,8 +104,6 @@ function ready(error, data) {
     xScale.domain([d3.min(data, xValue)-margin, d3.max(data, xValue)+margin]);
     yScale.domain([d3.min(data, yValue)-margin, d3.max(data, yValue)+margin]);
 
-    // top candidates
-    var topCandidates = [ 'angela-merkel', 'martin-schulz-1', 'christian-lindner', 'cem-ozdemir', 'alexander-gauland', 'joachim-herrmann' ];
 
     // draw dots
     svg.selectAll(".dot")
@@ -157,7 +159,19 @@ function updateTopics(button) {
 
 function showDetails(d) {
 
-    var text = '<div>' + d.name + "<br/>" + d.party + "<br/><a href='https://www.abgeordnetenwatch.de/profile/" + d.label + "'>Text</a></div>"
+    // url for top candidates is different
+    var url = topCandidates.includes(d.label) ? "https://wahl2017.withgoogle.com/top-10-candidates" : "https://www.abgeordnetenwatch.de/profile/" + d.label;
+
+    var topWords = [];
+    for (var i=0; i<20; i++) {
+        topWords.push(d['top_word_'+i]);
+    }
+    
+
+    var text = '<div>' + d.name + "<br/>" + d.party + "<br/><a href='" + url + "'>Text</a></div>"
+
+    text += '<br>' + topWords.join(', ');
+
     detailsContainer.node().innerHTML = '';
     detailsContainer.node().insertAdjacentHTML('afterbegin', text)
     

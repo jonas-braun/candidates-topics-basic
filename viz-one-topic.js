@@ -34,7 +34,7 @@ var cValue = function(d) { return d.score; },
     .domain([0, 0.8])
     .range(['white', 'red']),
     colorBW = d3.scaleLinear()
-    .domain([0.0, 0.3])
+    .domain([0.0, 4.])         // normalized
     .range(['white', 'black']);
 
 var partyKeywords = {   'CDU': 'cdu',
@@ -75,8 +75,12 @@ var colorManagerParty = function(d) {
 
 
 var colorManagerTopic = function(d, topic, maxValue) {
-      // TODO maxValue
-      return colorBW(d[topic]);
+      var thresholds = { 'natur': 0.037, // 80th percentile calculated by a30.py script
+            'arbeit': 0.076,
+            'digital': 0.027,
+            'demokratie': 0.068,
+            'familie': 0.076 }
+      return colorBW(d[topic] / thresholds[topic]); /* normalized */
 }
 
 function initOneTopic() {
