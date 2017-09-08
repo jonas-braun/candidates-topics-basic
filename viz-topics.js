@@ -13,6 +13,7 @@ var switches = {
                     'natur': false,
                     'arbeit': false,
                     'digital': false,
+                    'demokratie': false,
                     'familie': false
                 };
 
@@ -36,6 +37,7 @@ var colorManager = function(d) {
         if (switches.natur   && d['natur'] > 0.037    || // 80 percentile
             switches.arbeit  && d['arbeit'] > 0.076   ||
             switches.digital && d['digital'] > 0.027 ||
+            switches.demokratie && d['demokratie'] > 0.068 ||
             switches.familie && d['familie'] > 0.076  ) {
             
             return colorSchema[d['party']] || 'grey';
