@@ -1,0 +1,16 @@
+$root: 'customize-this-tag-name';
+
+$mq-breakpoints: (
+  xs: 480px,
+  sm: 768px,
+  md: 992px,
+  lg: 1200px
+);
+
+$primary-color: #eb454e;
+$secondary-color: #6b96c2;
+$accent-color: #5e8f2b;
+$background-color: #dadada;
+
+@import '../../node_modules/sass-mq/_mq.scss';
+@import 'components/app.scss';

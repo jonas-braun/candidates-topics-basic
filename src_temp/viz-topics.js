@@ -39,7 +39,7 @@ var colorManager = function(d) {
             switches.digital && d['digital'] > 0.027 ||
             switches.demokratie && d['demokratie'] > 0.068 ||
             switches.familie && d['familie'] > 0.076  ) {
-            
+
             return colorSchema[d['party']] || 'grey';
         }
         else {
@@ -77,7 +77,7 @@ function initTopics() {
 
     detailsContainer.attr("height", height);
 
-    // setup x 
+    // setup x
     xValue = function(d) { return +d.x;}, // data -> value
         xScale = d3.scaleLinear().range([0, width]), // value -> display
         xMap = function(d) { return xScale(xValue(d));}, // data -> display
@@ -89,7 +89,7 @@ function initTopics() {
 
 
     d3.queue()
-      .defer(d3.csv, "./candidates-topics-custom-cloud.csv")
+      .defer(d3.csv, "/candidates-topics-custom-cloud-noverlap-regularized.csv")
       .await(ready);
 
 }
@@ -114,7 +114,7 @@ function ready(error, data) {
       .attr("r", function(d) { return topCandidates.includes(d.label) ? pointSize*2.5 : pointSize; })
       .attr("cx", xMap)
       .attr("cy", yMap)
-      .style("fill", colorManager) 
+      .style("fill", colorManager)
       .on("mouseover", function(d) {
           tooltip.transition()
                .duration(200)
@@ -166,7 +166,7 @@ function showDetails(d) {
     for (var i=0; i<20; i++) {
         topWords.push(d['top_word_'+i]);
     }
-    
+
 
     var text = '<div>' + d.name + "<br/>" + d.party + "<br/><a href='" + url + "'>Text</a></div>"
 
@@ -174,7 +174,7 @@ function showDetails(d) {
 
     detailsContainer.node().innerHTML = '';
     detailsContainer.node().insertAdjacentHTML('afterbegin', text)
-    
+
 }
 
 

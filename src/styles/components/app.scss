@@ -1,0 +1,69 @@
+#{$root} {
+  background: $background-color;
+
+  @include mq($from: sm) {
+    background: $primary-color;
+  }
+
+  @include mq($from: md) {
+    background: $secondary-color;
+  }
+
+  @include mq($from: lg) {
+    background: $accent-color;
+  }
+}
+
+.candidate-cloud {
+  display: block;
+  border: 1px solid red;
+}
+
+.figure h2 {
+    margin: 50px;
+}
+
+
+.top {
+  r: 25px;
+}
+
+
+/* tooltip */
+
+.tooltip {
+  font-size: small;
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  pointer-events: none;
+  background-color: white;
+  border: 1px solid black;
+  padding: 20px;
+  text-align: center;
+  z-index: 2;
+}
+
+.detailsContainer {
+  padding: 10px;
+  background-color: #ddd;
+  float: right;
+}
+
+
+
+/* candidates by topic (oneTopic) */
+
+.wordContainer {
+  font-size: small;
+  float: left;
+  width: 24%;
+  height: 700px;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.word {
+  display: inline-block;
+  padding: 3px;
+}

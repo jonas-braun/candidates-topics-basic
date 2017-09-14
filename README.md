@@ -9,3 +9,22 @@ data source is abgeordnetenwatch.de (and google "Kandidaten in der Google Suche"
 the candidate cloud is based on 8 abstract topics, that were found using NMF (nonzero matrix factorization). The top words for each candidate are their tf-idf (term frequency - inverse document frequency) scores.
 
 The topic filters (for the five topics "arbeit", "natur", ...) are based on manually selected wordlists. the sources for the wordlists are in analysis-btw17-candidates-topics.
+
+Installation:
+
+```
+npm install
+```
+
+Start Development Server:
+
+```
+npm run dev
+```
+
+Build Production Version:
+
+```
+npm run build
+```
+
