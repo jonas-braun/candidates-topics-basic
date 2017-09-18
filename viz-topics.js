@@ -89,7 +89,7 @@ function initTopics() {
 
 
     d3.queue()
-      .defer(d3.csv, "/candidates-topics-custom-cloud.csv")
+      .defer(d3.csv, "./candidates-topics-custom-cloud.csv")
       .await(ready);
 
 }

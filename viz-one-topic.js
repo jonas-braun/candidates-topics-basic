@@ -56,7 +56,7 @@ var colorSchema = {   'CDU': '#000000',
                        'DIE LINKE': '#BE3075'
                    };
 
-var colorManagerParty = function(d) { 
+var colorManagerParty = function(d) {
     //console.log(switches);
     var show_none = Object.values(partySwitches).every(function(b) { return !b });
 
@@ -86,7 +86,7 @@ var colorManagerTopic = function(d, topic, maxValue) {
 function initOneTopic() {
 
     d3.queue()
-      .defer(d3.csv, "/candidates-topics-custom-cloud.csv")
+      .defer(d3.csv, "candidates-topics-custom-cloud.csv")
       .await(ready);
 
 }
