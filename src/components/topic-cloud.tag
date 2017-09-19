@@ -14,7 +14,7 @@
   <ul class="topic-cloud__list">
     <li
       each={candidates}
-      class="topic-cloud__item topic-cloud__item--{party}"
+      class="topic-cloud__item {getClassName(party)}"
       style="opacity: {value}"
     >
       {name}
@@ -44,6 +44,14 @@
     }
 
     this.isSelected = slug => this.selected.indexOf(slug) >= 0
+
+    this.getClassName = (party) => {
+      if (this.selected.indexOf(party) < 0) {
+        return 'topic-cloud__item--disabled'
+      } else {
+        return `topic-cloud__item--${party}`
+      }
+    }
 
     this.on('before-mount', () => {
       const topic = this.opts.topic
