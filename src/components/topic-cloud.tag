@@ -1,5 +1,16 @@
 <topic-cloud class="topic-cloud">
 
+  <form ref="selection">
+    <ul>
+      <li each={slug, name in parties}>
+        <label>
+          <input type="checkbox" name="party" value={slug} checked={isSelected(slug)} onchange={toggle}>
+          {name}
+        </label>
+      </li>
+    </ul>
+  </form>
+
   <ul class="topic-cloud__list">
     <li
       each={candidates}
@@ -13,26 +24,38 @@
   <script type='es6'>
     import { scaleLinear, min, max } from 'd3'
 
-    this.on('before-mount', () => {
-      const PARTIES = {
-        'CDU': 'cdu',
-        'CSU': 'cdu',
-        'SPD': 'spd',
-        'DIE GRÜNEN': 'gruene',
-        'AfD': 'afd',
-        'FDP': 'fdp',
-        'DIE LINKE': 'linke'
-      }
+    const PARTIES = {
+      'CDU': 'cdu',
+      'CSU': 'cdu',
+      'SPD': 'spd',
+      'DIE GRÜNEN': 'gruene',
+      'DIE LINKE': 'linke',
+      'FDP': 'fdp',
+      'AfD': 'afd'
+    }
 
+    this.toggle = ({target}) => {
+      if (target.checked) {
+        this.selected.push(target.value)
+      } else {
+        const index = this.selected.indexOf(target.value)
+        this.selected.splice(index, 1)
+      }
+    }
+
+    this.isSelected = slug => this.selected.indexOf(slug) >= 0
+
+    this.on('before-mount', () => {
       const topic = this.opts.topic
       const limit = this.opts.limit
-
       const minValue = min(this.opts.data, d => d[topic])
       const maxValue = max(this.opts.data, d => d[topic])
-
       const scale = scaleLinear()
         .domain([minValue, maxValue])
         .range([0, 1])
+
+      this.parties = PARTIES
+      this.selected = this.opts.selected.split(', ')
 
       this.candidates = this.opts.data
         .filter(d => d[topic] > limit)
@@ -43,6 +66,7 @@
           value: scale(d[topic])
         }))
     })
+
   </script>
 
 </topic-cloud>
