@@ -1,0 +1,33 @@
+.topic-cloud__item {
+  background: #666;
+  color: #ffffff;
+  display: inline-block;
+  margin: 0 5px 5px 0;
+  padding: 5px;
+  font-size: 15px;
+}
+
+.topic-cloud__item--cdu {
+  background: #000000
+}
+
+.topic-cloud__item--spd {
+  background: #e3000f
+}
+
+.topic-cloud__item--gruene {
+  background: #1aa037
+}
+
+.topic-cloud__item--afd {
+  background: #408cea
+}
+
+.topic-cloud__item--fdp {
+  background: #f3ff00;
+  color: #000000;
+}
+
+.topic-cloud__item--linke {
+  background: #BE3075
+}
