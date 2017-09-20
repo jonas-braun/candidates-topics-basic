@@ -64,7 +64,7 @@ module.exports = (options) => {
   }
 
   if (options.isProduction) {
-    webpackConfig.entry = ['./src/scripts/index']
+    webpackConfig.entry = ['./src/index.js']
 
     webpackConfig.plugins.push(
       new Webpack.optimize.OccurenceOrderPlugin(),
