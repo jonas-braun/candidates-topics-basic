@@ -1,7 +1,19 @@
+$cdu: #000000;
+$spd: darken(#e3000f, 5);
+$gruene: darken(#1aa037, 5);
+$linke: darken(#be3075, 5);
+$fdp: darken(#f3ff00, 5);
+$afd: darken(#408cea, 5);
+
+.topic-cloud__list {
+  margin: 0;
+  padding: 15px 0;
+}
+
 .topic-cloud__item {
   display: inline-block;
   margin: 0 5px 5px 0;
-  padding: 5px;
+  padding: 5px 8px;
   border-radius: 3px;
   font-size: 15px;
   line-height: 1;
@@ -10,26 +22,110 @@
 }
 
 .topic-cloud__item--cdu {
-  background: #000000
+  background: $cdu;
 }
 
 .topic-cloud__item--spd {
-  background: #e3000f
+  background: $spd;
 }
 
 .topic-cloud__item--gruene {
-  background: #1aa037
+  background: $gruene;
 }
 
 .topic-cloud__item--afd {
-  background: #408cea
+  background: $afd;
 }
 
 .topic-cloud__item--fdp {
-  background: #f3ff00;
+  background: $fdp;
   color: #000000;
 }
 
 .topic-cloud__item--linke {
-  background: #BE3075
+  background: $linke;
+}
+
+.topic-cloud__checkbox {
+  display: inline-block;
+
+  input {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  label {
+    display: block;
+    margin: 0 5px 5px 0;
+    padding: 6px 8px;
+    border: 1px solid gray;
+    border-radius: 3px;
+    background: #cdcdcd;
+    color: #333333;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 13px;
+  }
+
+  input:focus + label {
+    border: 1px solid black;
+  }
+
+  input:checked + label {
+    background: black;
+    color: #ffffff;
+  }
+
+  // input:focus:checked + label {
+  //   border-color: green;
+  // }
+}
+
+.topic-cloud__checkbox--cdu > input:checked + label {
+  background: $cdu;
+}
+
+.topic-cloud__checkbox--cdu:nth-of-type(2) {
+  display: none;
+}
+
+.topic-cloud__checkbox--spd > input:checked + label {
+  background: $spd;
+}
+
+.topic-cloud__checkbox--gruene > input:checked + label {
+  background: $gruene;
+}
+
+.topic-cloud__checkbox--afd > input:checked + label {
+  background: $afd;
+}
+
+.topic-cloud__checkbox--fdp > input:checked + label {
+  background: $fdp;
+  color: #000000;
+}
+
+.topic-cloud__checkbox--linke > input:checked + label {
+  background: $linke;
+}
+
+.topic-cloud__checkbox-group {
+  border-bottom: 1px solid #dadada;
+
+  ul {
+    margin: 0;
+    padding: 0 5px;
+    display: inline-block;
+  }
+}
+
+.topic-cloud__checkbox-label {
+  display: inline-block;
 }

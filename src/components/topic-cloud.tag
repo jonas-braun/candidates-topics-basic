@@ -1,12 +1,11 @@
 <topic-cloud class="topic-cloud">
 
-  <form ref="selection">
+  <form class="topic-cloud__checkbox-group" ref="selection">
+    <h4 class="topic-cloud__checkbox-label">Parteizugehörigkeit anzeigen:</h4>
     <ul>
-      <li each={slug, name in parties}>
-        <label>
-          <input type="checkbox" name="party" value={slug} checked={isSelected(slug)} onchange={toggle}>
-          {name}
-        </label>
+      <li class="topic-cloud__checkbox topic-cloud__checkbox--{slug}" each={slug, name in parties}>
+        <input id="{getSelectId(slug)}" type="checkbox" name="party" value="{slug}" checked="{isSelected(slug)}" onchange="{toggle}" />
+        <label for="{getSelectId(slug)}">{name}</label>
       </li>
     </ul>
   </form>
@@ -44,6 +43,8 @@
     }
 
     this.isSelected = slug => this.selected.indexOf(slug) >= 0
+
+    this.getSelectId = slug => `${this.opts.topic}_${slug}`
 
     this.getClassName = (party) => {
       if (this.selected.indexOf(party) < 0) {
